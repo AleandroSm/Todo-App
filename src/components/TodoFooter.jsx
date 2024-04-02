@@ -3,10 +3,14 @@ export function TodoFooter({todos, clearCompletedTodo, onUpdateFilter}) {
     
     return (
         <footer className="TodoFooter">
-            <div>
+            
+            <div className="TodoFooter-itemsLeft">
                 <span> {todos.filter(todo => !todo.done).length} </span>
                 items left</div>
-            <div>
+            <div className="TodoFooter-clear">
+                <span className="TodoFooter-span" onClick={() => clearCompletedTodo()} >Clear Completed</span>
+            </div>
+            <div className="TodoFooter-filters">
                 <label className="TodoFooter-label">
                     <input type="radio"
                         className="TodoFooter-input"
@@ -34,9 +38,6 @@ export function TodoFooter({todos, clearCompletedTodo, onUpdateFilter}) {
                     />
                     <span className="TodoFooter-span">Completed</span>
                 </label>
-            </div>
-            <div className="td-clear-completed">
-                <span className="TodoFooter-span" onClick={() => clearCompletedTodo()} >Clear Completed</span>
             </div>
         </footer>
     )
