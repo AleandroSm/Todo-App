@@ -13,6 +13,12 @@ body{
   font-size: 18px;
   color: hsl(235, 19%, 35%);
 }
+@media (768px >= width){
+  body{
+    background: url("assets/bg-mobile-light.jpg") no-repeat;
+    background-size: contain;
+  }
+}
 
 .App{
   display: grid;
@@ -34,7 +40,15 @@ body{
   width: 26px;
   height: 26px;
 }
-
+@media (768px >= width){
+  .App-header{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    padding-bottom: 0px;
+    margin-bottom: -20px;
+  }
+}
 .App-td{
   width: 40%;
 }
@@ -63,7 +77,15 @@ body{
   color: #333;
   width: 100%;
 }
-
+@media (768px >= width){
+  .App-td{
+    width: 90%;
+  }
+  .App-td-add{
+    padding-top: 0px;
+    margin-bottom: -20px;
+  }
+}
 .App-td-list{
   background: hsl(0, 0%, 98%);
   border-radius: 5px;
@@ -74,6 +96,9 @@ body{
   list-style-type: none;
   padding: 0;
   margin: 50px 0 0px 0;
+  /* background: hsl(0, 0%, 98%);
+  border-radius: 5px;
+  box-shadow: 0 42px 30px -9px hsl(236, 33%, 92%); */
 }
 
 .TodoItem{
@@ -147,12 +172,26 @@ body{
 }
 
 .TodoFooter{
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  font-size: 14px;
-  min-height: 45px;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-template-rows: 0;
+  align-content: center;
+  font-size: 13px;
+  min-height: 50px;
   color: hsl(236,9%,61%);
+  position: relative;
+}
+.TodoFooter-filters{
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+.TodoFooter-clear{
+  grid-column-start: 3;
+  grid-column-end: 4;
+  justify-self: center;
+}
+.TodoFooter-itemsLeft{
+  padding-left: 28px;
 }
 .TodoFooter-label{
   padding: 0px 10px;
@@ -174,7 +213,21 @@ body{
 .TodoFooter-input:checked ~.TodoFooter-span{
   color: hsl(220, 98%, 61%);
 }
-
+@media (768px >= width){
+ 
+  .TodoFooter-filters{
+    position: relative;
+    top: 50px;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    text-align: center;
+    background: hsl(0, 0%, 98%);
+    border-radius: 5px;
+    box-shadow: 0 42px 30px -9px hsl(236, 33%, 92%);  
+    font-size: 18px;
+}
+  
+}
 .App-p{
   color: hsl(236,9%,61%);
   padding-top: 50px;
