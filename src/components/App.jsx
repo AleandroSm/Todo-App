@@ -3,19 +3,20 @@ import { useTodo } from "../hooks/useTodo"
 import { TodoList } from "./TodoList"
 import { TodoFooter } from "./TodoFooter"
 import { useTodoFilters } from "../hooks/useTodoFilters"
+import {switchTheme} from "../switchTheme"
 import { DndContext, closestCenter } from "@dnd-kit/core"
 import { SortableContext, verticalListSortingStrategy } from "@dnd-kit/sortable"
 
-
 export function App() {
-
   const { todos, handleNewTodo, handleDeleteTodo, handleToggleTodo, handleClearCompletedTodo, handleDragTodo } = useTodo()
   const { todoFilter, onUpdateFilter } = useTodoFilters()
+  
+  
   return (
     <main className="App">
       <header className="App-header">
         <h1 className="App-title">T O D O</h1>
-        <span className="App-icon"></span>
+        <span onClick={() => switchTheme()} className="App-icon"></span>
       </header>
       <div className="App-td">
         <div className="App-td-add">
