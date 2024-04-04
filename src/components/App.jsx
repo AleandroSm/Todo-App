@@ -4,7 +4,7 @@ import { TodoList } from "./TodoList"
 import { TodoFooter } from "./TodoFooter"
 import { useTodoFilters } from "../hooks/useTodoFilters"
 import {switchTheme} from "../switchTheme"
-import { DndContext, closestCenter } from "@dnd-kit/core"
+import { DndContext, TouchSensor, closestCenter, useSensors, useSensor, PointerSensor } from "@dnd-kit/core"
 import { SortableContext, verticalListSortingStrategy } from "@dnd-kit/sortable"
 
 export function App() {
@@ -23,6 +23,7 @@ export function App() {
           <TodoAdd addNewTodo={handleNewTodo} />
         </div>
         <DndContext
+          sensors={useSensors(useSensor(PointerSensor), useSensor(TouchSensor))}
           collisionDetection={closestCenter}
           onDragEnd={handleDragTodo}
         >
