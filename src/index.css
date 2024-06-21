@@ -29,7 +29,7 @@
 
 body{
   background: var(--bg-image);
-  background-size: contain;
+  background-size: 100dvw;
   background-repeat: no-repeat;
   background-color: var(--main-bg);
   font-family: "Josefin Sans";
